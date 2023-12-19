@@ -1,0 +1,11 @@
+@font-face {
+    font-family: OPEN_SANS_FAMILY;
+    font-style: normal, italic;
+    font-weight: 100;
+    font-display: swap;
+    src: url(./Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf) format('woff2');
+  }
+
+html {
+    font-family: OPEN_SANS_FAMILY;
+}
