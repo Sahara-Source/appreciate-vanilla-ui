@@ -13,7 +13,7 @@ function okButtonClickEventListener() {
 } 
 window.onload = () => {
     dialog = document.getElementById("helpDialog")
-    okButton = document.querySelector("html body section dialog form button") 
+    okButton = document.querySelector("html body section form button") 
     showPopup()
     okButtonClickEventListener()
 }

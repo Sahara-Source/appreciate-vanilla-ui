@@ -1,10 +1,10 @@
-.form-text{
+.yourid-form {
 	position:relative;
 }
 input{
 	padding:5px 5px 5px 150px;
 }
-.static-value{
+.yourid-label{
 	position:absolute;
 	left:10px;
 	font-weight:bold;

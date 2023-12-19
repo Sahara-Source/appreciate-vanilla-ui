@@ -12,19 +12,24 @@
     </section>
     <section id="create-account">
         <!-- HTML5 pop up -->
-        <dialog id="helpDialog">
-            <p>This is an HTML5 popup dialog.</p>
-            <h2>Create your acccount</h2>
-            <p>Choose a user name for your account</p>
-            <p>Click OK to submit the form, close and continue.</p>
-            <form class="form-text">
-                <input type="text" placeholder="yourname" id="youridhere">
-                <label for="youridhere" class="static-value">appreciate+.com/</label>                
-                <button>(Form!) Signup</button>
-            </form>
-        </dialog>
+        <h2>Create your acccount</h2>
+        <p>Choose a user name for your account</p>
+        <form class="yourid-form">
+            <input type="text" placeholder="yourname" id="yourid-input">
+            <label for="yourid-input" class="yourid-label">appreciate+.com/</label>  
+            <img src="./invalid-red-cross.svg">         
+            <button>Signup</button>
+            <label for="yourid-input" class="yourid-label-username-taken">Please enter a user name</label>
+            <label for="yourid-input" class="yourid-label-username-taken">Sorry, this user name is taken. Try another...</label>   
+        </form>
     </section>
 </body>
+
+<footer>
+    <p>
+        By continuing, you agree to the terms of <a href="./service.html">service</a> and <a href="./privacy.html">privacy</a> policy.
+    </p> 
+</footer>
 <!-- navigator share api?? -->
 
 <!-- partykit = websocket apis -->
