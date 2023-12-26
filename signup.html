@@ -1,8 +1,8 @@
 <html>
 
 <head>
-    <script src="./appreciate+.js"> </script>
-    <link rel="stylesheet" href="./appreciate+.css"> 
+    <script src="./js/appreciate+.js"> </script>
+    <link rel="stylesheet" href="./css/appreciate+.css"> 
     <title>Appreciate+ Sign up page</title>
 </head>
 
@@ -10,18 +10,18 @@
     <section id="already-signedup">
         <p>Already have an account?</p><a href="./login.html">login</a>
     </section>
-    <section id="create-account">
+    <section class="container" id="create-account">
         <!-- HTML5 pop up -->
-        <h2>Create your acccount</h2>
-        <p>Choose a user name for your account</p>
-        <form class="yourid-form">
-            <input type="text" placeholder="yourname" id="yourid-input">
+        <div class="create-account-div">
+            <h1>Create your acccount</h1>
+            <h4>Choose a user name for your page</h4>
+            <input type="text" placeholder="yourname" id="yourid-input" class="create-account-input">
             <label for="yourid-input" class="yourid-label">appreciate+.com/</label>  
-            <img src="./invalid-red-cross.svg">         
+            <img src="./invalid-red-cross.svg" class="create-account-input-invalid">          
             <button>Signup</button>
-            <label for="yourid-input" class="yourid-label-username-taken">Please enter a user name</label>
-            <label for="yourid-input" class="yourid-label-username-taken">Sorry, this user name is taken. Try another...</label>   
-        </form>
+            <label for="yourid-input" class="yourid-label-username color-text-warning">Please enter a user name</label>
+            <label for="yourid-input" class="yourid-label-username-taken color-text-warning">Sorry, this user name is taken. Try another...</label>   
+        </div>
     </section>
 </body>
 

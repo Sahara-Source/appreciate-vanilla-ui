@@ -1,0 +1,43 @@
+@import "typography.css";
+@import "colors.css";
+@import "font.css";
+@import "spacing.css";
+  
+body {
+    font-size: var(--text-base-size);
+    font-family: OPEN_SANS_FAMILY;
+    color: var(--color-text);
+    line-height: var(--body-line-height);
+    .color-text-warning {
+        color: var(--color-text-warning);
+    }
+}
+
+h1, h2, h3, h4, form legend {
+    color: var(--color-text-heading);
+    margin-bottom: var(--space-xxs);
+    line-height: var(--heading-line-height);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    align-items: center;
+}
+
+.create-account-div {
+    width: 500px;
+}
+
+.create-account-input {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+    background-color: rgb(240 240 240 / var(--bg-opacity));
+}
+
+.yourid-label-username, .yourid-label-username-taken, .create-account-input-invalid  {
+    display: none;
+}

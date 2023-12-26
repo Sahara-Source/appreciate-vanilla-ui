@@ -1,0 +1,6 @@
+:root {
+    --space-xxs: 10;
+    --heading-line-height: 1;
+    --body-line-height: 2;
+    line-height: var(--heading-line-height):
+}
