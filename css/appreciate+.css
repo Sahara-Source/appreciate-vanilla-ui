@@ -82,3 +82,7 @@ input {
 .yourid-label-username, .yourid-label-username-taken, .create-account-input-invalid  {
     display: none;
 }
+
+.create-account-input {
+    padding-left: 169px;
+}
