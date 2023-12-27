@@ -19,6 +19,43 @@ h1, h2, h3, h4, form legend {
     line-height: var(--heading-line-height);
 }
 
+button,
+fieldset,
+input,
+legend,
+select,
+textarea {
+    /* "turn off" all default browser styles. */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input {
+    outline-color: #151515;
+    --tw-bg-opacity: 1;
+    background-color: rgb(240 240 240 / var(--tw-bg-opacity));
+    border-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    box-sizing: border-box;
+    border-style: solid;
+    width: 100%;
+    height: 48px;
+    padding: 0 0 0 16px;
+    border-radius: 0.75rem;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -26,16 +63,20 @@ h1, h2, h3, h4, form legend {
     align-items: center;
 }
 
-.create-account-div {
-    width: 500px;
+.container-h3 {
+    padding-left: 1rem;
+    padding-right: 2.5rem;
+    top: 0.25rem;
+    align-items: center;
+    height: 2.5rem;
+    left: 0.25rem;
+    margin: 0 0 0 0;
+    position: absolute;
 }
 
-.create-account-input {
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: solid;
-    border-color: #e5e7eb;
-    background-color: rgb(240 240 240 / var(--bg-opacity));
+.create-account-div {
+    width: 500px;
+    position: relative;
 }
 
 .yourid-label-username, .yourid-label-username-taken, .create-account-input-invalid  {
