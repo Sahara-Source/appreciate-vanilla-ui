@@ -76,6 +76,17 @@ input {
     font-size: inherit;
 }
 
+.already-have-account-div {
+    padding-top: 2.75rem; 
+    padding-right: 3rem;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.already-have-account-a {
+    margin-left: 0.375rem;
+}
+
 .create-account-input-div {
     width: 500px;
     position: relative;
