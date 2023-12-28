@@ -64,6 +64,7 @@ input {
 }
 
 .container-h3 {
+    display: flex;
     padding-left: 1rem;
     padding-right: 2.5rem;
     top: 0.25rem;
@@ -72,9 +73,10 @@ input {
     left: 0.25rem;
     margin: 0 0 0 0;
     position: absolute;
+    font-size: inherit;
 }
 
-.create-account-div {
+.create-account-input-div {
     width: 500px;
     position: relative;
 }
@@ -84,5 +86,6 @@ input {
 }
 
 .create-account-input {
-    padding-left: 169px;
+    padding-left: 146px;
+    font-size: inherit;
 }
