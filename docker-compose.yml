@@ -6,8 +6,7 @@ services:
     volumes:
       - ./__files:/home/wiremock/__files
       - ./mappings:/home/wiremock/mappings
+      # note --global-response-templating switch turns on use of handlebars templating in wiremock (and avoids need to specify this on a per request basis) 
     entrypoint: ["/docker-entrypoint.sh", "--global-response-templating", "--disable-gzip", "--verbose"]
     ports:
       - 8080:8080
-  #   for endpoints
-  # - https://app.buymeacoffee.com/api/v1/check_availability

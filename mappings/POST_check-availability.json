@@ -12,6 +12,6 @@
       "headers": {
           "Content-Type": "application/json"
       },
-      "bodyFileName": "check-availibility.json"
+      "bodyFileName": "{{request.pathSegments.[0]}}.json"
     }
   }
