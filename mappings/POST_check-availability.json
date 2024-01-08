@@ -1,0 +1,17 @@
+{
+    "request": {
+      "method": "POST",
+      "url": "/check-availability",
+      "bodyPatterns" : [ {
+        "matchesJsonPath" : "$.[? (@.slug =~ /^([a-zA-Z]|[\\d]|[.]){1,25}$/i)]"
+      } ]
+    },
+  
+    "response": {
+      "status": 200,
+      "headers": {
+          "Content-Type": "application/json"
+      },
+      "bodyFileName": "check-availibility.json"
+    }
+  }
