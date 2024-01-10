@@ -1,3 +1,7 @@
 {
-    "slug": "{{jsonPath request.body '$.slug'}}"
+    "type":"status",
+    "data":{
+        "project_slug":"{{jsonPath request.body '$.slug'}}",
+        "available": true
+    }
 }

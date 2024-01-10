@@ -1,4 +1,9 @@
-var signupButton, yourIdInput
+var signupButton,
+    yourIdInput,
+    yourIdInputBadCharactersLabel,
+    yourIdInputTooShortLabel,
+    yourIdInputTakenLabel,
+    yourIdInputInvalidLabelIcon
 
 // letters, numbers and periods 
 const validIdRegex = new RegExp(/^([a-zA-Z]|[\d]|[.]){1,25}$/, "i");
@@ -9,78 +14,96 @@ function yourIdInputKeyPressListener() {
         // Without an action, submitting the form via the default GET method causes a page to reload. 
         // so, prevent form submission
         event.preventDefault();
-        var yourIdInputInvalidLabel = document.querySelector('#input-prompt-username-invalid')
-        var yourIdInputInvalidLabelIcon = document.querySelector('.create-account-input-invalid')
-        if(!isValidInput(yourIdInput.value)) {
-            removeHidden([yourIdInputInvalidLabel, yourIdInputInvalidLabelIcon])
+        var elems = [yourIdInputBadCharactersLabel, yourIdInputTooShortLabel, yourIdInputTakenLabel, yourIdInputInvalidLabelIcon]
+        hideAllWarnings(elems)
+        enableSubmitButton()
+        borderOutlineValid()
+        if (isBadCharacters(yourIdInput.value)) {
+            showInputInvalid([yourIdInputBadCharactersLabel, yourIdInputInvalidLabelIcon])
+        } else if (isTooShort(yourIdInput.value)) {
+            showInputInvalid([yourIdInputTooShortLabel, yourIdInputInvalidLabelIcon])
         } else {
-            hide([yourIdInputInvalidLabel, yourIdInputInvalidLabelIcon])
-        }
-        if(isTaken(yourIdInput.value)) {
-            console.log("is taken!")
+            checkAvailability(yourIdInput.value)
         }
     })
-} 
-    
+}
+
 function signUpButtonClickEventListener() {
     signupButton.addEventListener("click", event => {
         // Without an action, submitting the form via the default GET method causes a page to reload. 
         // so, prevent form submission
         event.preventDefault();
         console.log("Signup button clicked")
+        // submit new username and navigate to signed in page
     })
-} 
+}
 
 window.onload = () => {
-    signupButton = document.querySelector(".footer-div-signup-button")
     yourIdInput = document.querySelector("#yourid-input")
+    yourIdInputBadCharactersLabel = document.querySelector('#input-prompt-username-bad-characters')
+    yourIdInputTooShortLabel = document.querySelector('#input-prompt-username-too-short')
+    yourIdInputTakenLabel = document.querySelector('#input-prompt-username-taken')
+    yourIdInputInvalidLabelIcon = document.querySelector('.create-account-input-invalid-icon')
+    signupButton = document.querySelector('#submit')
+
     signUpButtonClickEventListener()
     yourIdInputKeyPressListener()
-
-    // if input is empty: show error
-    // else 
-    //   randomly show "user name taken"
-    // else
-    //    navigate to signed in page
 }
 
-function isValidInput(yourId) {
-    return validIdRegex.test(yourId)
+function isBadCharacters(yourId) {
+    return !validIdRegex.test(yourId)
 }
 
-function isTaken(inputValue) {
+function isTooShort(yourId) {
+    return yourId.length < 4 || yourId.length > 25
+}
+
+async function checkAvailability(inputValue) {
     const request = new Request("http://localhost:8080/check-availability", {
         method: "POST",
-        body: `{"slug": ${inputValue}}`
+        body: `{"slug": "${inputValue}"}`
     })
-    fetch(request)
-        // .then((response) => {
-        //     if (response.status === 200) {
-        //     return response.json();
-        //     } else {
-        //     throw new Error("Something went wrong on API server!");
-        //     }
-        // })
-        // .then((response) => {
-        //     console.debug(response);
-        // })
-        // .catch((error) => {
-        //     console.error(error);
-        // })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data)
-        })
+    try {
+        const response = await fetch(request);
+        if (response.ok) {
+            const data = await response.json();
+            console.log(`${inputValue} is available`)
+            console.log(data);
+        } else {
+            console.log(`${inputValue} is taken`)
+            showInputInvalid([yourIdInputTakenLabel, yourIdInputInvalidLabelIcon])
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function removeHidden(elems) {
+function showInputInvalid(elems) {
     elems.forEach(element => {
-      element.classList.remove('hidden')  
+        element.classList.remove('hidden')
     })
+    disableSubmitButton()
+    borderOutlineInvalid()
 }
 
-function hide(elems) {
+function hideAllWarnings(elems) {
     elems.forEach(element => {
         element.classList.add('hidden')
     })
+}
+
+function disableSubmitButton() {
+    signupButton.setAttribute('disabled', '')
+}
+
+function enableSubmitButton() {
+    signupButton.removeAttribute('disabled')
+}
+
+function borderOutlineInvalid() {
+    yourIdInput.classList.add('border-error')
+}
+
+function borderOutlineValid() {
+    yourIdInput.classList.remove('border-error')
 }

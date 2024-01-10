@@ -1,3 +1,4 @@
+@import "common.css";
 @import "typography.css";
 @import "colors.css";
 @import "font.css";
@@ -53,7 +54,6 @@ input {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-
 }
 
 .container {
@@ -96,13 +96,13 @@ input {
     position: relative;
 }
 
-.hidden  {
-    display: none;
-}
-
 .create-account-input {
     padding-left: 146px;
     font-size: inherit;
+}
+
+.border-error {
+    border-color: var(--color-border-warning) !important;
 }
 
 .footer-div {

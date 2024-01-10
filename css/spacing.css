@@ -1,6 +1,13 @@
 :root {
     --space-xxs: 10;
+
     --heading-line-height: 1;
+
     --body-line-height: 2;
-    line-height: var(--heading-line-height):
+
+    line-height: var(--heading-line-height);
+
+    .top-4 { top: 1rem; }
+
+    .right-4 { right: 1rem; }
 }
