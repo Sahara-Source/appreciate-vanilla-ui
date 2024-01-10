@@ -10,8 +10,15 @@
     "response": {
       "status": 200,
       "headers": {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin" : "*",
+          "Access-Control-Allow-Methods" : "*"
       },
-      "bodyFileName": "{{request.pathSegments.[0]}}.json"
+      "bodyFileName": "{{request.pathSegments.[0]}}.json",
+      "delayDistribution": {
+        "type": "lognormal",
+        "median": 80,
+        "sigma": 0.4
+    }
     }
   }

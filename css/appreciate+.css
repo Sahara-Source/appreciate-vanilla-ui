@@ -96,7 +96,7 @@ input {
     position: relative;
 }
 
-.yourid-label-username, .yourid-label-username-taken, .create-account-input-invalid  {
+.hidden  {
     display: none;
 }
 
